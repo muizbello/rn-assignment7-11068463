@@ -3,12 +3,15 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useState,useEffect } from "react";
 import ProductCard from "../Components/ProductCard";
 import { ActivityIndicator } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 
 
 export default function HomeScreen({navigation}){
+    
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true)
-
+    
 
   useEffect(() => {
     const fetchdata = async() =>{
@@ -66,6 +69,9 @@ export default function HomeScreen({navigation}){
                         <Image style={styles.secxt4} source={require('../assets/iu.png')}/>
                         </View>
                     </View>
+                     
+
+                    
                     <View style={styles.productholder}>
                     {products.map(product => (
                     <ProductCard
@@ -76,6 +82,7 @@ export default function HomeScreen({navigation}){
                         category={product.category}
                         description={product.description}
                         image={product.image}
+                        
                     />
                     ))}
                     </View>

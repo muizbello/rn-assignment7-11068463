@@ -5,11 +5,14 @@ import { useNavigation } from '@react-navigation/native';
 
 const CustomDrawerContent = (props) => {
     const navigation = useNavigation();
+    const navigateToHome = () => {
+      navigation.navigate('Store', { screen: 'Home' });
+    };
   return (
     
     <DrawerContentScrollView {...props}>
       <View>
-      <TouchableOpacity onPress={() => navigation.navigate('Store')} style={styles.drawerHeaderfx}>
+      <TouchableOpacity onPress={navigateToHome} style={styles.drawerHeaderfx}>
           <View style={styles.drawerHeader}>
             <Image
               source={require('../assets/Close.png')}

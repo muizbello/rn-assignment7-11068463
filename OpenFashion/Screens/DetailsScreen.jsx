@@ -4,10 +4,13 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useRoute } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native";
 
+
 export default function ProductDetailsScreen({ navigation }) {
   const route = useRoute();
   const { item } = route.params;
 
+ 
+  
   return (
     <SafeAreaView>
       <ScrollView style={styles.headerd} showsVerticalScrollIndicator={false}>
