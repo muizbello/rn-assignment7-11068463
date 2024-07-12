@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -6,6 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const ProductCard = ({ id, title, price, category, description, image }) => {
   const item = { id, title, price, category, description, image };
   const navigation = useNavigation();
+  
   const addToCart = async () => {
     try {
       const existingCart = await AsyncStorage.getItem('cart');

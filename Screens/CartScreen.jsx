@@ -4,9 +4,10 @@ import { useState,useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
+
 export default function CartScreen({navigation}){
     const [cart, setCart] = useState([]);
-
+   
     useEffect(() => {
       const fetchCart = async () => {
         try {
@@ -44,27 +45,45 @@ export default function CartScreen({navigation}){
                     </Text>
                 </View>
                 
-              <View>
+              <View style={{marginBottom: 10}}>
                     {cart.map((item, index) => (
-                    <View style={{flex: 1, marginTop: 15, width: 250, borderWidth: 1, borderRadius: 3, alignSelf: 'center', justifyContent: 'center'}} key={index}>
-                      <View>
-                          <View style={{backgroundColor: '#fff', height: 200}}>
+                    <View style={{flex: 1, marginTop: 15, backgroundColor: '#ffffff',elevation: 5, alignSelf: 'flex-start', justifyContent: 'center'}} key={index}>
+                      <View style={{flexDirection: 'row', width: 330}}>
+                          <View style={{backgroundColor: '#fff'}}>
                             <Image source={{uri: item.image}} style={styles.image} resizeMode="contain" />
                           </View>
-                          <View>
-                            <Text style={{textTransform: 'capitalize', marginTop: -20}}>{item.category}</Text>
-                            <Text>{item.title}</Text>
-                            
-                            <Text numberOfLines={3} ellipsizeMode="tail">{item.description}</Text>
-                            <Text>{item.price}</Text>
+                          <View style={{marginTop: 25, width: 200}}>
+                            <View style={{justifyContent: 'flex-start', flex: 1}}>
+                              <Text style={{fontSize: 16, marginTop: -23}}>{item.title}</Text>
+                              <Text style={{textTransform: 'capitalize'}}>{item.category}</Text>
+                              <Text numberOfLines={2} ellipsizeMode="tail">{item.description}</Text>
+                            </View>
+                            <View style={{flexDirection: 'row', justifyContent: 'space-between', marginTop: 20}}>
+                            <Text style={{color: '#8D8A85', fontSize: 18}}>{item.price}</Text>
                             <TouchableOpacity onPress={() => removeFromCart(index)}>
                             <Image source={require('../assets/remove.png')}></Image>
                             </TouchableOpacity>
+                            </View>
                           </View>
                       </View>
+                      
                     </View>
+                    
                     ))}
+                    
                 </View>
+                <View>
+                <View style={{flexDirection: 'row', justifyContent: 'space-between', position: 'static', marginTop: 380}}>
+                      <Text style={{fontSize: 16}}>Est. Total</Text>
+                      <Text style={{fontSize: 18, color: '#8989A5'}}>$22.30</Text>
+                    </View>
+                    <View style={{flexDirection: 'row', padding:10, justifyContent: 'center',backgroundColor: '#000',height: 90, marginLeft: -1, marginRight: -1}}>
+                        <Image style={{backgroundColor: '#000',marginRight: 15,marginTop: 20}}source={require('../assets/shoppingBag.png')} />
+                        <Text style={{color: '#fff',marginLeft: 0,marginRight: 15, marginTop: 22,fontSize: 16}}>CHECKOUT</Text>
+                        
+                    </View>
+                </View>
+                
             </ScrollView>
         </SafeAreaView>
         
@@ -77,11 +96,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         margin: 5,
         padding: 5,
+        
        },
        image: {
-        width: 200,
+        width: 120,
         height: 150,
-        
-        
+        marginRight: 5,
+        marginTop: 5
       }
     })

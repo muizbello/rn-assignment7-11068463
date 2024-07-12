@@ -3,7 +3,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useState,useEffect } from "react";
 import ProductCard from "../Components/ProductCard";
 import { ActivityIndicator } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+
 
 
 
@@ -54,7 +54,7 @@ export default function HomeScreen({navigation}){
                         <View style={styles.sect3} >
                           <Image style={styles.secxt3} source={require('../assets/Search.png')}/>
                           <TouchableOpacity onPress={() => navigation.navigate('CartScreen')}>
-                          <Image style={styles.secxt3} source={require('../assets/shoppingBag.png')}/>
+                          <Image style={styles.secxt3} source={require('../assets/shopping bag.png')}/>
                           </TouchableOpacity>
                         </View>
                     </View>

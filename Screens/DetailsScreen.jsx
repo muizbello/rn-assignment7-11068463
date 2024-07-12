@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Text, StyleSheet, View, Image, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRoute } from "@react-navigation/native";
@@ -27,7 +27,7 @@ export default function ProductDetailsScreen({ navigation }) {
             <View style={styles.sect3}>
               <Image style={styles.secxt3} source={require('../assets/Search.png')} />
               <TouchableOpacity onPress={() => navigation.navigate('CartScreen')}>
-                <Image style={styles.secxt3} source={require('../assets/shoppingBag.png')} />
+                <Image style={styles.secxt3} source={require('../assets/shopping bag.png')} />
               </TouchableOpacity>
             </View>
           </View>
